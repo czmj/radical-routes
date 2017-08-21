@@ -1,0 +1,31 @@
+{
+  "name": "radical-routes",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "postinstall": "bower install"
+  },
+  "author": "Clara Jordan",
+  "license": "GPLv3",
+  "devDependencies": {
+    "breakpoint": "^0.1.6",
+    "browser-sync": "^2.9.6",
+    "generator-breakpoint": "^1.2.2",
+    "gulp": "^3.9.0",
+    "gulp-autoprefixer": "^3.0.1",
+    "gulp-build": "^0.5.3",
+    "gulp-concat": "^2.6.0",
+    "gulp-file-include": "^0.13.7",
+    "gulp-jshint": "^2.0.1",
+    "gulp-minify": "0.0.14",
+    "gulp-notify": "^2.2.0",
+    "gulp-sass": "^2.0.4",
+    "gulp-uglify": "^2.0.0",
+    "gulp-wrap": "^0.11.0",
+    "jshint": "^2.9.3",
+    "markdown": "^0.5.0",
+    "node-sass": "^3.3.3"
+  }
+}
