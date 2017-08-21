@@ -1,0 +1,72 @@
+p {
+	margin-bottom: $vr*3;
+}
+
+a {
+	text-decoration: none;
+
+	color: inherit;
+}
+
+li {
+	margin-bottom: $vr*2;
+}
+
+.h1,
+.h2,
+.h3,
+.h4 {
+	display: block;
+}
+
+h1,
+.h1 {
+	margin-bottom: $vr*5;
+	letter-spacing: -2px;
+
+	font-size: $h1-size / 2;
+	line-height: 1.1;
+
+	@include breakpoint($lg) {
+		font-size: $h1-size;
+	}
+}
+
+h2,
+.h2 {
+	margin-bottom: $vr*5;
+
+	font-size: $h3-size;
+	line-height: 1.1;
+
+	@include breakpoint($lg) {
+		letter-spacing: -2px;
+
+		font-size: $h2-size;
+	}
+}
+
+h3,
+.h3 {
+	margin-bottom: $vr*6;
+
+	font-size: $h3-size;
+	line-height: 1.1;
+
+	@include breakpoint($lg) {
+		letter-spacing: -1px;
+	}
+}
+
+h4,
+.h4 {
+	margin-bottom: $vr*3;
+
+	font-size: $h4-size - 2px;
+
+	@include breakpoint($lg) {
+		margin-bottom: $vr*5;
+		font-size: $h4-size;
+		letter-spacing: 0;
+	}
+}

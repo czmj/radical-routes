@@ -1,0 +1,108 @@
+$susy: (
+  columns: 8,
+  gutters: 1/4,
+  math: fluid,
+  output: float,
+  gutter-position: after,
+  // debug: (
+  //   image: show,
+  //   color: rgba(#4a7ab5, 0.3),
+  //   output: overlay,
+  //   toggle: bottom left,
+  // )
+);
+
+// break points
+$breakpoint-sm-width: 480px;
+$breakpoint-md-width: 860px;
+$breakpoint-lg-width: 1200px;
+$breakpoint-xl-width: 1400px;
+$breakpoint-xxl-width: 1920px;
+
+//aliases
+$sm: $breakpoint-sm-width;
+$md: $breakpoint-md-width;
+$lg: $breakpoint-lg-width;
+$xl: $breakpoint-xl-width;
+$xxl: $breakpoint-xxl-width;
+
+$breakpoint-xs-width-max: $breakpoint-sm-width - 1;
+$breakpoint-sm-width-max: $breakpoint-md-width - 1;
+$breakpoint-md-width-max: $breakpoint-lg-width - 1;
+$breakpoint-lg-width-max: $breakpoint-xl-width - 1;
+$breakpoint-xl-width-max: $breakpoint-xxl-width - 1;
+
+$retina-query: (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi);
+
+// Dimensions
+$vertical-rhythm: 5px; // use $vr*X to maintain vertical consistency
+$vr: $vertical-rhythm; // Alias
+$base-line-height: $vr*4;
+
+// Colours
+$brand-color-a: #c63c30;
+$brand-color-b: #d1902b;
+$brand-color-c: #6c9987;
+$brand-color-d: #4a7ab5;
+$brand-color-e: #933b63;
+$brand-color-f: #241f2f;
+$brand-color-g: #dadbcc;
+$brand-color-h: #646269;
+$brand-color-i: #573787;
+
+$brand-colors: (
+  a: $brand-color-a,
+  b: $brand-color-b,
+  c: $brand-color-c,
+  d: $brand-color-d,
+  e: $brand-color-e,
+  f: $brand-color-f,
+  g: $brand-color-g,
+  h: $brand-color-h,
+  i: $brand-color-i
+);
+
+$brand-white: #FFF;
+$brand-black: #000;
+
+$background-color: $brand-color-f;
+$text-color: $brand-color-g;
+$text-color-b: lighten($background-color, 53%);
+
+// Typography
+$font-family-sans-serif: 'wigrum', Helvetica, Arial, sans-serif;
+$font-family-serif: 'Georgia Pro', Georgia, Times, serif;
+$font-family-mono: 'Anonymous Pro', 'Droid Sans Mono', 'DejaVu Sans Mono', Monaco, Consolas, 'Lucida Console', Courier, monospace;
+$font-family-base: $font-family-sans-serif;
+$icon-font: 'icomoon';
+
+// Font Sizing
+$font-size-base: 16px;
+$line-height-base: 1.4;
+
+$font-weight-bold: 700;
+$font-weight-medium: 600;
+$font-weight-regular: 400;
+$font-weight-light: 100;
+
+$h1-size: $vr*18;
+$h2-size: $vr*12;
+$h3-size: $vr*7;
+$h4-size: $vr*4;
+
+// z-index
+$z-base: 1;
+$z-small: 5;
+$z-mid: 10;
+$z-high: 100;
+$z-super: 1000;
+
+// margins
+$margin-md: 34px;
+$margin-lg: 100px;
+$margin-xl: 100px;
+$margin-xxl: 200px;
+$container-padding: 20px;
+
+// misc
+$header-height-desktop: $vr*22;

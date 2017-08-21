@@ -1,0 +1,317 @@
+.section {
+    position: relative;
+
+    display: block;
+    padding-bottom: $vr*5;
+    color: $text-color;
+    z-index: $z-mid;
+
+    @include breakpoint($md) {
+        padding-bottom: $vr*17;
+    }
+
+    > .container {
+        position: relative;
+    }
+
+    &::after {
+        position: absolute;
+        top: 100%;
+
+        width: 100%;
+        height: $vr*40;
+
+        content: '';
+    }
+}
+
+.content > .section:first-child {
+    @include breakpoint($lg) {
+        margin-top: $vr*51;
+
+        .ie11 & {
+            margin-top: $vr*60;
+        }
+    }
+
+    @include breakpoint($xl) {
+        margin-top: $vr*33;
+    }
+}
+
+.section__title {
+    position: relative;
+    padding-top: $vr*6;
+
+    width: 100%;
+    margin-bottom: 0;
+
+    background: $background-color;
+
+    @include breakpoint($lg) {
+        @include span(5 of 8);
+        position: absolute;
+        bottom: 100%;
+        bottom: calc(100% - #{$vr * 7});
+
+        padding-top: $vr*13;
+        padding-bottom: $vr*5;
+        padding-right: gutter()*2;
+    }
+    @include breakpoint($xxl) {
+        @include span(4 of 8);
+    }
+
+    @include breakpoint((max-height 900px) (min-width $lg)) {
+        padding-top: $vr*8;
+        min-height: $vr*37;
+        margin-top: -$vr*24;
+
+        h1 {
+            font-size: $h2-size;
+        }
+    }
+
+    &::before {
+        position: absolute;
+        top: 0;
+        right: 100%;
+
+        width: 0;
+        height: 100%;
+
+        content: '';
+
+        @include breakpoint($lg) {
+            width: $margin-lg + $container-padding;
+        }
+        @include breakpoint($xl) {
+            width: $margin-xl + $container-padding;
+        }
+        @include breakpoint($xxl) {
+            width: $margin-xxl + $container-padding;
+        }
+    }
+}
+
+.section__inner {
+    padding-top: $vr*10;
+
+    @include breakpoint($md) {
+        padding-top: $vr*8;
+    }
+
+    @include breakpoint($lg) {
+        @include span(6 of 8);
+        margin-top: $vr*10;
+    }
+
+    &:empty {
+        display: none;
+    }
+}
+
+.section__lead {
+    @extend .h4;
+
+    @include breakpoint($md) {
+        margin-bottom: gutter();
+        @include span(5 of 6);
+    }
+}
+
+.section__body {
+    .section__lead + & {
+        float: left;
+        width: 50%;
+        margin-top: 100px;
+    }
+
+    .h3 {
+        margin-bottom: $vr*3;
+    }
+}
+
+.section__column {
+    margin-bottom: $container-padding*2;
+    flex-grow: 1;
+
+    .h3 {
+        margin-top: $vr*3;
+        max-width: 220px;
+    }
+
+    @include breakpoint($lg) {
+        padding-right: gutter(5);
+        width: 50%;
+    }
+
+    @include breakpoint($xxl) {
+        width: 25%;
+        margin-bottom: 0;
+    }
+}
+
+@each $index, $color in $brand-colors {
+    .section--theme-#{$index} {
+
+        color: dynamic-color-3($color);
+        background: $color;
+
+        .section__title {
+            background: $color;
+            &::before {
+                background: $color;
+            }
+        }
+
+        &::after {
+            background: $color;
+        }
+    }
+}
+
+// override default theme color
+.section--theme-g {
+    .section__title {
+        color: shade($brand-color-g, 80%);
+    }
+}
+
+.section--theme-light {
+    background: $brand-white;
+    color: $brand-color-c;
+
+    .section__title {
+        background: $brand-white;
+        &::before {
+            background: $brand-white;
+        }
+    }
+
+    &::after {
+        background: $brand-white;
+    }
+}
+.section--theme-light-b {
+    @extend .section--theme-light;
+
+    color: $brand-color-h;
+}
+
+.section--style-a {
+
+    .section__inner {
+        @include breakpoint($md) {
+            @include span(8 of 8);
+        }
+    }
+
+    .section__lead {
+        @include breakpoint($md) {
+            @include span(8 of 8);
+        }
+        @include breakpoint($lg) {
+            @include span(6 of 8);
+            padding-right: gutter()*2;
+        }
+    }
+    .section__title {
+        color: inherit;
+    }
+}
+
+.section--style-b {
+
+    .section__title {
+        right: 0;
+
+        @include breakpoint($lg) {
+            padding: $vr*10 0 $vr*5 $container-padding*2;
+
+            @include last();
+        }
+
+
+        &::before {
+            right: auto;
+            left: 100%;
+        }
+    }
+}
+
+.section--style-c {
+    .section__title {
+        color: inherit;
+
+        @include breakpoint($lg) {
+            @include span(6 of 8);
+        }
+        @include breakpoint($xxl) {
+            @include span(6 of 8);
+        }
+    }
+    .section__inner {
+        @include breakpoint($md) {
+            @include span(8 of 8);
+        }
+    }
+
+    .section__lead {
+        @include breakpoint($md) {
+            @include span(8 of 8);
+        }
+        @include breakpoint($lg) {
+            @include span(6 of 8);
+            padding-right: gutter()*2;
+        }
+    }
+}
+
+.section--style-d {
+    &::after {
+        content: none;
+    }
+
+    .section__inner {
+        @include span(8 of 8);
+
+        @include breakpoint($lg) {
+            padding: gutter(4) 0 0;
+        }
+
+    }
+}
+
+.section--style-e {
+
+    .section__inner,
+    .section__lead {
+        width: 100%;
+        margin-bottom: 0;
+        margin-right: 0;
+    }
+
+    .section__lead {
+        @include breakpoint($lg) {
+            display: flex;
+            flex-wrap: wrap;
+        }
+    }
+}
+
+.section--transition {
+    @include breakpoint($lg) {
+        position: relative;
+        .js & {
+            transition: top 500ms ease-out 500ms, opacity 200ms ease-out;
+            top: 30vh;
+            opacity: 0;
+        }
+
+        .page-ready & {
+            top: -$vr;
+            opacity: 1;
+        }
+    }
+}

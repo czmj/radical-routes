@@ -1,0 +1,46 @@
+@function dynamic-color($color, $lightness: 50, $dark-color: $brand-black, $light-color: $brand-white) {
+     @if (lightness($color) > $lightness){
+        @return $dark-color; // Lighter backgorund, return dark color
+    }
+    @else {
+         @return $light-color; // Darker background, return light color
+    }
+}
+
+@function dynamic-color-3($color, $lightness: 75, $lightness-2: 45, $dark-color: shade($color, 50%), $mid-color: shade($color, 60%), $light-color: $text-color) {
+     @if (lightness($color) > $lightness){
+        @return $dark-color;
+    }
+    @else if (lightness($color) > $lightness-2) {
+       @return $mid-color;
+    }
+    @else {
+         @return $light-color;
+    }
+}
+
+@function tint($color, $percentage) {
+  @return mix(white, $color, $percentage);
+}
+
+@function shade($color, $percentage) {
+  @return mix(black, $color, $percentage);
+}
+
+@mixin placeholder($color) {
+	&:-moz-placeholder {
+		color: $color; // Firefox 4-18
+	}
+
+	&::-moz-placeholder {
+		color: $color; // Firefox 19+
+	}
+
+	&:-ms-input-placeholder {
+		color: $color; // Internet Explorer 10+
+	}
+
+	&::-webkit-input-placeholder {
+		color: $color; // Safari and Chrome
+	}
+}

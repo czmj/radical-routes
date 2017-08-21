@@ -1,0 +1,58 @@
+.wordpress-content-area {
+	> * {
+		float: left;
+		display: block;
+		clear: both;
+		width: 100%;
+	}
+
+	ul {
+		float: left;
+		list-style-type: disc;
+		padding-left: 30px;
+	}
+
+	blockquote {
+		border-left: 2px solid #555;
+    	padding-left: 15px;
+	}
+
+	b {
+		font-weight: bold;
+	}
+
+	a {
+		text-decoration: underline;
+	}
+
+	sup {
+	    vertical-align: super;
+	    font-size: 60%;
+	}
+	sub {
+		vertical-align: sub;
+		font-size: 60%;
+	}
+
+	table {
+		width: 100%;
+		font-weight: $font-weight-regular;
+
+		@include breakpoint($lg){
+			@include span(4 of 5);
+		}
+
+		td,
+		th {
+			padding: $vr*3;
+			border: 1px solid;
+			text-align: center;
+		}
+
+
+		th {
+			font-weight: $font-weight-medium;
+
+		}
+	}
+}

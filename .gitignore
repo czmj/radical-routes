@@ -1,0 +1,11 @@
+node_modules/*
+bower_components/*
+dist/*
+.DS_Store
+*.log
+Homestead.yaml
+Vagrantfile
+.vagrant
+/vendor/
+after.sh
+aliases
