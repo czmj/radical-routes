@@ -1,18 +1,10 @@
-
 @font-face {
-    font-family: 'wigrum';
-    src: url('./fonts/wigrum/wigrum_regular-webfont.woff2') format('woff2'),
-         url('./fonts/wigrum/wigrum_regular-webfont.woff') format('woff');
-    font-weight: 100;
-    font-style: normal;
-
-}
-
-@font-face {
-    font-family: 'wigrum';
-    src: url('./fonts/wigrum/wigrum_medium-webfont.woff2') format('woff2'),
-         url('./fonts/wigrum/wigrum_medium-webfont.woff') format('woff');
-    font-weight: 400;
-    font-style: normal;
-
+	font-weight: normal;
+	font-style: normal;
+	font-family: 'Larsseit';
+	src:url('#{$directory-fonts}/Larsseit/Larsseit.eot?-gfwsty');
+	src:url('#{$directory-fonts}/Larsseit/Larsseit.eot?#iefix-gfwsty') format('embedded-opentype'),
+	url('#{$directory-fonts}/Larsseit/Larsseit.ttf?-gfwsty') format('truetype'),
+	url('#{$directory-fonts}/Larsseit/Larsseit.woff?-gfwsty') format('woff'),
+	url('#{$directory-fonts}/Larsseit/Larsseit.svg?-gfwsty#Larsseit') format('svg');
 }

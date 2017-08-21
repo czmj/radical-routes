@@ -1,69 +1,20 @@
-@mixin vertical-align {
-
-	position: relative;
-	top: 50%;
-	transform: translateY(-50%);
-
-}
-
-@mixin vertical-align-table {
-	display: table;
-
-	.wrapper {
-		display: table-cell;
-		vertical-align: middle;
-	}
-}
-
-@mixin padding-section {
-	padding-top: 150px;
-	padding-bottom: 300px;
-
-	@include breakpoint(max-width $breakpoint-sm-width) {
-		padding-top: 60px;
-		padding-bottom: 170px;
-
-	}
-}
-
-.hidden {
-	.js & {
+@mixin hidden-xs { 
+	@include breakpoint(max-width) {
 		display: none;
 	}
-}
-
-.hidden-no-js {
-	.no-js & {
-		display: none;
-	}
-}
-
-@mixin hidden-xs {
-	@include breakpoint(max-width $breakpoint-sm-width) {
-		display: none;
-	}
-}
-.hidden-xs {
-	@include hidden-xs;
 }
 
 @mixin hidden-sm {
-	@include breakpoint($breakpoint-sm-width $breakpoint-sm-width-max) {
+	@include breakpoint($breakpoint-sm-width) {
 		display: none;
-	}
-}
-.hidden-sm {
-	@include hidden-sm;
+	}	
 }
 
 
 @mixin hidden-md {
-	@include breakpoint($breakpoint-md-width $breakpoint-md-width-max) {
+	@include breakpoint($breakpoint-md-width) {
 		display: none;
-	}
-}
-.hidden-md {
-	@include hidden-md;
+	}	
 }
 
 @mixin hidden-lg {
@@ -71,22 +22,19 @@
 		display: none;
 	}
 }
-.hidden-lg {
-	@include hidden-lg;
-}
-
 
 @mixin visually-hidden {
-	border: 0;
-	clip: rect(0 0 0 0);
-	height: 1px;
-	margin: -1px;
-	overflow: hidden;
-	padding: 0;
-	position: absolute;
-	width: 1px;
+	position: absolute; 
+	overflow: hidden; 
+	clip: rect(0 0 0 0); 
+	height: 1px; 
+	width: 1px; 
+	margin: -1px; 
+	padding: 0; 
+	border: 0; 
 }
 
-.visually-hidden {
-	@include visually-hidden;
+.visually-hidden,
+.screen-reader-text {
+	@include visually-hidden();
 }

@@ -3,15 +3,12 @@
 
 @import 'utilities/reset';
 @import 'utilities/variables';
+@import 'utilities/global';
+@import 'utilities/typography';
+@import 'utilities/fonts';
+@import 'utilities/icons';
 @import 'utilities/layout_utilities';
 @import 'utilities/color_utilities';
-@import 'utilities/global';
-@import 'utilities/icons';
-@import 'utilities/fonts';
-@import 'utilities/typography';
 @import 'utilities/wordpress';
 
-@import 'components/container';
 @import 'components/section';
-
-@import 'layout/pages';

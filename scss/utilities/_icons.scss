@@ -1,42 +1,117 @@
-@font-face {
-	font-family: 'icomoon';
-	src:  url('./fonts/icomoon/icomoon.eot');
-	src:  url('./fonts/icomoon/icomoon.ttf') format('truetype'),
-	url('./fonts/icomoon/icomoon.woff') format('woff'),
-	url('./fonts/icomoon/icomoon.svg') format('svg');
-	font-weight: normal;
-	font-style: normal;
-}
-
-%icon {
-	text-transform: none;
-	font-family: 'icomoon';
-	font-weight: normal;
-	font-style: normal;
-	font-variant: normal;
-	line-height: 1;
-	speak: none;
-	-webkit-font-smoothing: antialiased;
-	-moz-osx-font-smoothing: grayscale;
-}
-
-.icon {
-	@extend %icon;
-}
-
 $icons: (
-	'twitter': '\f081',
-	'facebook': '\f082',
-	'linkedin': '\f08c',
-	'angle-down': '\f107',
-	'arrow-right': '\e900',
-	'close': '\e901'
+	envelope-o: "\f003",
+	twitter-square: "\f081",
+	facebook-square: "\f082",
+	linkedin-square: "\f08c",
+	twitter: "\f099",
+	facebook: "\f09a",
+	facebook-f: "\f09a",
+	pinterest: "\f0d2",
+	pinterest-square: "\f0d3",
+	google-plus-square: "\f0d4",
+	google-plus: "\f0d5",
+	envelope: "\f0e0",
+	linkedin: "\f0e1",
+	rss-square: "\f143",
+	youtube-square: "\f166",
+	youtube: "\f167",
+	xing: "\f168",
+	youtube-play: "\f16a",
+	dropbox: "\f16b",
+	instagram: "\f16d",
+	tumblr: "\f173",
+	tumblr-square: "\f174",
+	foursquare: "\f180",
+	vk: "\f189",
+	weibo: "\f18a",
+	renren: "\f18b",
+	vimeo-square: "\f194",
+	google: "\f1a0",
+	stumbleupon-circle: "\f1a3",
+	stumbleupon: "\f1a4",
+	delicious: "\f1a5",
+	digg: "\f1a6",
+	file-pdf-o: "\f1c1",
+	file-word-o: "\f1c2",
+	file-excel-o: "\f1c3",
+	file-powerpoint-o: "\f1c4",
+	vine: "\f1ca",
+	tencent-weibo: "\f1d5",
+	qq: "\f1d6",
+	wechat: "\f1d7",
+	weixin: "\f1d7",
+	paper-plane: "\f1d8",
+	send: "\f1d8",
+	paper-plane-o: "\f1d9",
+	send-o: "\f1d9",
+	facebook-official: "\f230",
+	pinterest-p: "\f231",
+	medium: "\f23a",
+	tripadvisor: "\f262",
+	vimeo: "\f27d",
+	snapchat: "\f2ab",
+	snapchat-ghost: "\f2ac",
+	snapchat-square: "\f2ad",
+	google-plus-circle: "\f2b3",
+	google-plus-official: "\f2b3",
+	telegram: "\f2c6",
+	meetup: "\f2e0"
 );
 
-@each $name, $code in $icons {
-	.icon--#{$name} {
-		&::before {
-			content: $code;
-		}
-	}
+// For adding font icons to elements using CSS pseudo-elements
+// http://jaydenseric.com/blog/fun-with-sass-and-font-icons
+@mixin icon($position: before, $icon: false, $styles: true) {
+    display: inline-block;
+	margin: $vr*2;
+	
+    @if $position == both {
+        $position: 'before, &:after';
+    }
+    // Either a :before or :after pseudo-element, or both, defaulting to :before
+    &:#{$position} {
+        @if $icon {
+            // A particular icon has been specified
+            content: "#{map-get($icons, $icon)}";
+        }
+        @if $styles {
+            // Supportive icon styles required
+            vertical-align: middle;
+			text-transform: none;
+			font-weight: normal;
+			font-style: normal;
+			font-variant: normal;
+			font-family: '#{$icon-font}';
+			line-height: 1;
+
+			speak: none;
+			-webkit-font-smoothing: antialiased;
+			-moz-osx-font-smoothing: grayscale;
+        }
+        // Include any extra rules supplied for the pseudo-element
+        @content;
+    }
+}
+
+@font-face {
+	font-weight: normal;
+	font-style: normal;
+	font-family: '#{$icon-font}';
+	src:url('#{$directory-fonts}/#{$icon-font}/#{$icon-font}.eot?-gfwsty');
+	src:url('#{$directory-fonts}/#{$icon-font}/#{$icon-font}.eot?#iefix-gfwsty') format('embedded-opentype'),
+	url('#{$directory-fonts}/#{$icon-font}/#{$icon-font}.ttf?-gfwsty') format('truetype'),
+	url('#{$directory-fonts}/#{$icon-font}/#{$icon-font}.woff?-gfwsty') format('woff'),
+	url('#{$directory-fonts}/#{$icon-font}/#{$icon-font}.svg?-gfwsty##{$icon-font}') format('svg');
+}
+
+// Set the required styles on all icons
+[class^="icon--"],
+[class*=" icon--"] {
+    @include icon;
+}
+
+// Setup a class name for each icon
+@each $name, $char in $icons {
+    .icon--#{$name} {
+		@include icon(before, $name, false);
+    }
 }
